@@ -19,3 +19,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore rvm config files.
+.ruby-version
+.ruby-gemset

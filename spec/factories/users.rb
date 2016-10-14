@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
     email "test@email.com"
-    password BCrypt::Password.create("test123")
+    password_digest BCrypt::Password.create("test123")
     phone "12345"
     full_name "User"
     birthday 1999-12-12
@@ -12,7 +12,4 @@ FactoryGirl.define do
       birthday 1999-11-11
     end
   end
-
-  another_user = FactoryGirl.create(:another_user)
-
 end
