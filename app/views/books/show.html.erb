@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @book.description %>
+</p>
+
+<p>
+  <strong>Author name:</strong>
+  <%= @book.author_name %>
+</p>
+
+<p>
+  <strong>Publisher name:</strong>
+  <%= @book.publisher_name %>
+</p>
+
+<p>
+  <strong>Published date:</strong>
+  <%= @book.published_date.strftime("%B %-d, %Y") %>
+</p>
+
+<p>
+  <strong>Unit price:</strong>
+  <%= number_to_currency(@book.unit_price) %>
+</p>
+
+<p>
+  <strong>Average rate:</strong>
+  <%= @avg_rate %>
+</p>
+
+<p>
+  <strong>Total rate:</strong>
+  <%= @rate_num %>
+</p>
+
+<%= image_tag(@book.photo) %>
+
+<%= button_to "Add to Cart" %>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

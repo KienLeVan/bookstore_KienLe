@@ -1,0 +1,3 @@
+book_detail
+  - photo
+  - All user comments, each with author name, rating, comment content and comment date. Newest comments are shown first.
