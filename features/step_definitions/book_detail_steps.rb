@@ -14,37 +14,37 @@ When(/^I am on the book detail page of "(.*?)"$/) do |title|
 end
 
 Then(/^I should see the "(.*?)" title$/) do |title|
-  page.should have_content(title)
+  expect(page).to have_content(title)
 end
 
 Then(/^I should see author name "(.*?)"$/) do |author|
-  page.should have_content(author)
+  expect(page).to have_content(author)
 end
 
 Then(/^I should see publisher is "(.*?)"$/) do |publisher|
-  page.should have_content(publisher)
+  expect(page).to have_content(publisher)
 end
 
 Then(/^I should see publish date is "(.*?)"$/) do |date|
-  page.should have_content(date)
+  expect(page).to have_content(date)
 end
 
 Then(/^I should see unit price is "(.*?)"$/) do |price|
-  page.should have_content(price)
+  expect(page).to have_content(price)
 end
 
 Then(/^I should see the image with alt "(.*?)"$/) do |image|
-  page.should have_xpath("//img[@alt=\"#{image}\"]")
+  expect(page).to have_xpath("//img[@alt=\"#{image}\"]")
 end
 
 Then(/^I should see total rating (\d+)$/) do |rating|
-  page.should have_content(rating)
+  expect(page).to have_content(rating)
 end
 
 Then(/^I should see average rating ([^\"]*)$/) do |avg_rating|
-  page.should have_content(avg_rating)
+  expect(page).to have_content(avg_rating)
 end
 
 Then(/^I should see button "(.*?)"$/) do |button|
-  page.should have_xpath("//input[@value=\"#{button}\"]")
+  expect(page).to have_xpath("//input[@value=\"#{button}\"]")
 end
