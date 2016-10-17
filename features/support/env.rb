@@ -3,6 +3,21 @@
 # newer version of cucumber-rails. Consider adding your own code to a new file
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
+require 'simplecov'
+if ENV['CIRCLE_ARTIFACTS']
+  require 'coveralls'
+  Coveralls.wear_merged!
+  SimpleCov.merge_timeout 3600
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
+  ]
+
+  dir = File.join(ENV['CIRCLE_ARTIFACTS'], "coverage")
+  SimpleCov.coverage_dir(dir)
+  SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
+  SimpleCov.start 'rails'
+end
 
 require 'cucumber/rails'
 require 'factory_girl'

@@ -16,6 +16,20 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require 'simplecov'
+
+if ENV['CIRCLE_ARTIFACTS']
+  dir = File.join(ENV['CIRCLE_ARTIFACTS'], "coverage")
+  SimpleCov.coverage_dir(dir)
+  SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
+  SimpleCov.start 'rails'
+end
+
+require 'coveralls'
+Coveralls.wear!('rails')
+SimpleCov.merge_timeout 3600
+
 require 'factory_girl_rails'
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
